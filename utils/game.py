@@ -11,6 +11,7 @@ class Hangman:
         self.wrongly_guessed_letters = []
         self.turn_count = int(0)
         self.error_count = int()
+        #modification test
 
 
 
