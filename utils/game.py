@@ -1,6 +1,6 @@
 import random
 import re
-
+import sys
 class Hangman:
     """This class is the settings for the Hangman game."""
     def __init__(self) -> None:
@@ -11,11 +11,6 @@ class Hangman:
         self.wrongly_guessed_letters = []
         self.turn_count = int(0)
         self.error_count = int()
-        #modification test
-
-
-
-    
     #Methods
 
     # A play() method that asks the player to enter a letter. 
@@ -23,19 +18,25 @@ class Hangman:
     # If the player guessed a letter well, add it to the correctly_guessed_letters list. 
     # If not, add it to the wrongly_guessed_letters list and add 1 to error_count.
     def play(self):
+        print("the word to find has",len(self.word_to_find),"letters")
         guess = input("Enter a letter")
-        if guess == len(1) and guess.isalpha():
+        if len(guess) == 1 and guess.isalpha():
             if guess in self.word_to_find:
-                for guess, index in enumerate (self.word_to_find):
-                    self.correctly_guessed_letters[index] = guess
+                for index, letter in enumerate(self.word_to_find):
+                    if letter == guess:
+                        self.correctly_guessed_letters[index] = guess
+                        self.turn_count += 1
+                        print(guess," is in the word to find!")           
+ 
             else:
+                print(guess,"is not in the word to find")
                 self.wrongly_guessed_letters.append(guess)
-                self.lives -= 1
+                self.lives -= int(1)
                 self.error_count += int(1)
+                self.turn_count += int(1)
         else:
-            guess = input("Enter a letter")
-        self.turn_count += int(1)
-        
+            self.turn_count += int(1)
+      
 
            
         
@@ -51,22 +52,25 @@ class Hangman:
             self.play()
             if self.lives == 0:
                 self.game_over()
-            if re.match(self.correctly_guessed_letters,self.word_to_find):
+            if ''.join(self.correctly_guessed_letters) == ''.join(self.word_to_find):
                 self.well_played()
             else:
-                print(self.correctly_guessed_letters, self.wrongly_guessed_letters, self.lives, self.error_count, self.turn_count)
+                print("Your guess:",''.join(self.correctly_guessed_letters), "the wrongly guessed letters are",self.wrongly_guessed_letters,",you have", self.lives,"live(s) left",", you made ", self.error_count," error(s)",", the number of turn is:", self.turn_count)
+            #else:
+                #print(self.correctly_guessed_letters, self.wrongly_guessed_letters, self.lives, self.error_count, self.turn_count)
             
 
     #A game_over() method that will stop the game and print game over....
     def game_over(self):
-        print("Game over...")
-        quit
+        print("the word to find was",self.word_to_find, "\nGame over...")
+        quit()
 
     #A well played() method that will print You found the word: {word_to_find_here} in {turn_count_here} turns with 
     # {error_count_here} errors!.
 
     def well_played(self):
-        print("You find the word", self.word_to_find, "in",self.turn_count, "with",self.error_count,"error")
+        print("You find the word", self.word_to_find, "in",self.turn_count,"turns, with",self.error_count,"error(s)")
+        quit()
         
 
 
