@@ -7,14 +7,7 @@ class Hangman:
 
     This class allows players to play a game of Hangman. It includes methods for initializing the game,
     playing a turn, starting the game, and handling game over and victory scenarios.
-    Attributes:
-        possibles_words (List[str]): A list of possible words for the game.
-        word_to_find (List[str]): The randomly selected word to be guessed.
-        lives (int): The number of lives the player has.
-        correctly_guessed_letters (List[str]): A list of correctly guessed letters in the word.
-        wrongly_guessed_letters (List[str]): A list of incorrectly guessed letters.
-        turn_count (int): The number of turns played.
-        error_count (int): The number of errors made during the game.
+
     Methods:
         __init__(self) -> None:
             Initialize the Hangman game settings.
@@ -30,16 +23,15 @@ class Hangman:
         
     def __init__(self) -> None:
 
-    """
-    Initialize the Hangman game settings.
-
-    This method sets up the initial state of the Hangman game by:
-    - Selecting a random word to be guessed from a list of possible words.
-    - Setting the initial number of lives to 5.
-    - Creating a list of underscores to represent the letters to guess.
-    - Initializing an empty list for wrongly guessed letters.
-    - Initializing counters for turn and error counts.
-    """
+        """
+        Initialize the Hangman game settings.
+        This method sets up the initial state of the Hangman game by:
+        - Selecting a random word to be guessed from a list of possible words.
+        - Setting the initial number of lives to 5.
+        - Creating a list of underscores to represent the letters to guess.
+        - Initializing an empty list for wrongly guessed letters.
+        - Initializing counters for turn and error counts.
+        """
         self.possibles_words: List[str]=["becode","learning","mathematics","sessions","variable","function","algorithm","debugging","iteration","condition","operator","syntax","compiler","interpreter","recursion","object","class","method","inheritance","polymorphism","abstraction","encapsulation","database","version","git","javascript","python","java","csharp","html","css","php","sql","ruby","typescript","frontend","backend","server","framework","library","api","variable","boolean","integer","float","string","array","list","dictionary","tuple","module","package","import"]
         self.word_to_find: List[str] = list(choice(self.possibles_words))
         self.lives: int = 5
@@ -52,6 +44,8 @@ class Hangman:
         Play a single turn of the Hangman game.
         This method prompts the player to enter a letter and checks if it's in the word to find.
         If the guess is correct, it updates the game state, and if incorrect, it deducts a life.
+        If the input of the player is not a single letter or is not an alpha character, 
+        it display a message error.
         """
         print("the word to find has",len(self.word_to_find),"letters")
         guess: str = input("Enter a letter")
@@ -79,7 +73,7 @@ class Hangman:
     
     def start_game(self):
         """
-        Start the Hangman game
+        Start the Hangman game.
         """
         while self.lives != 0 :
             self.play()
