@@ -2,6 +2,34 @@ from random import choice
 from sys import exit
 from typing import List
 class Hangman:
+    """"
+    This class represents a Hangman game.
+
+    This class allows players to play a game of Hangman. It includes methods for initializing the game,
+    playing a turn, starting the game, and handling game over and victory scenarios.
+    Attributes:
+        possibles_words (List[str]): A list of possible words for the game.
+        word_to_find (List[str]): The randomly selected word to be guessed.
+        lives (int): The number of lives the player has.
+        correctly_guessed_letters (List[str]): A list of correctly guessed letters in the word.
+        wrongly_guessed_letters (List[str]): A list of incorrectly guessed letters.
+        turn_count (int): The number of turns played.
+        error_count (int): The number of errors made during the game.
+    Methods:
+        __init__(self) -> None:
+            Initialize the Hangman game settings.
+        play(self):
+            Play a single turn of the Hangman game.
+        start_game(self):
+            Start the Hangman game.
+        game_over(self):
+            End the game and display a 'Game Over' message.
+        well_played(self):
+            End the game and display a 'Well Played' message.
+    """
+        
+    def __init__(self) -> None:
+
     """
     Initialize the Hangman game settings.
 
@@ -12,8 +40,6 @@ class Hangman:
     - Initializing an empty list for wrongly guessed letters.
     - Initializing counters for turn and error counts.
     """
-    
-    def __init__(self) -> None:
         self.possibles_words: List[str]=["becode","learning","mathematics","sessions","variable","function","algorithm","debugging","iteration","condition","operator","syntax","compiler","interpreter","recursion","object","class","method","inheritance","polymorphism","abstraction","encapsulation","database","version","git","javascript","python","java","csharp","html","css","php","sql","ruby","typescript","frontend","backend","server","framework","library","api","variable","boolean","integer","float","string","array","list","dictionary","tuple","module","package","import"]
         self.word_to_find: List[str] = list(choice(self.possibles_words))
         self.lives: int = 5
