@@ -55,7 +55,7 @@ class Hangman:
             if ''.join(self.correctly_guessed_letters) == ''.join(self.word_to_find):
                 self.well_played()
             else:
-                print("Your guess:",''.join(self.correctly_guessed_letters), "the wrongly guessed letters are",self.wrongly_guessed_letters,",you have", self.lives,"live(s) left",", you made ", self.error_count," error(s)",", the number of turn is:", self.turn_count)
+                print("Your guess:",''.join(self.correctly_guessed_letters), "the wrongly guessed letters are",self.wrongly_guessed_letters,",you have ", self.lives,"live(s) left",", you made ", self.error_count," error(s)",", the number of turn is:", self.turn_count)
             #else:
                 #print(self.correctly_guessed_letters, self.wrongly_guessed_letters, self.lives, self.error_count, self.turn_count)
             
