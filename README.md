@@ -53,6 +53,10 @@ To play the Hangman game, follow these steps:
 
 - If you guess the entire word correctly, the game will display a "You found the word" message along with the statistics (turn count and error count) and then exit.
 
+## Contributor 
+
+- Nicolas, Gilles, Thomas and Alexandre from the AI Thomas 3 promotion @BeCode Liège.
+
 ## Notes
 
 - The list of possible words is predefined in the `Hangman` class, but you can modify it to include your own words. Currently, the list of possible words is about programming and computer science.  
