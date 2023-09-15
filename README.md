@@ -24,7 +24,7 @@ To play the Hangman game, follow these steps:
 2. Navigate to the project directory:
 
    ```shell
-   cd hangman-game
+   cd hangman
    ```
 
 3. Run the game by executing `main.py`:
